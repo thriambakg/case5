@@ -23,8 +23,8 @@ class Task:
         return self.predecessor
 
     def calculate_duration(self):
-        return np.random.triangular(self.min_duration, self.most_likely_duration, self.max_duration)
-
+        return np.random.normal(self.most_likely_duration, abs(self.most_likely_duration-self.max_duration)/3)
+    
     def calculate_cost(self):
         return (self.calculate_duration() / 7) * self.cost_per_week
 
